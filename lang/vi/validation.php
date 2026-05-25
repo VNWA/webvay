@@ -1,0 +1,52 @@
+<?php
+
+return [
+
+    'accepted' => 'Trường :attribute phải được chấp nhận.',
+    'required' => 'Vui lòng nhập :attribute.',
+    'email' => ':attribute không đúng định dạng email.',
+    'gmail_only' => 'Chỉ chấp nhận địa chỉ Gmail cá nhân (đuôi @gmail.com).',
+    'phone_vn' => 'Số điện thoại không hợp lệ. Dùng số di động Việt Nam (ví dụ 0912345678 hoặc +84912345678).',
+    'digits' => ':attribute phải gồm :digits chữ số.',
+    'date' => ':attribute không phải ngày hợp lệ.',
+    'before' => ':attribute phải trước ngày :date.',
+    'integer' => ':attribute phải là số nguyên.',
+    'min' => [
+        'numeric' => ':attribute tối thiểu là :min.',
+        'string' => ':attribute tối thiểu :min ký tự.',
+    ],
+    'max' => [
+        'numeric' => ':attribute tối đa là :max.',
+        'string' => ':attribute tối đa :max ký tự.',
+        'file' => ':attribute tối đa :max KB.',
+    ],
+    'in' => 'Giá trị :attribute không hợp lệ.',
+    'image' => ':attribute phải là hình ảnh (jpg, png, webp…).',
+    'mimes' => ':attribute phải là định dạng: :values.',
+
+    'attributes' => [
+        'email' => 'địa chỉ email',
+        'code' => 'mã xác thực',
+        'desired_amount' => 'số tiền vay',
+        'full_name' => 'họ và tên',
+        'birthday' => 'ngày sinh',
+        'gender' => 'giới tính',
+        'cccd_number' => 'số CCCD',
+        'address' => 'địa chỉ',
+        'province' => 'tỉnh/thành phố',
+        'district' => 'quận/huyện',
+        'ward' => 'phường/xã',
+        'company' => 'công ty',
+        'job_title' => 'chức danh',
+        'monthly_income' => 'thu nhập hàng tháng',
+        'bank_name' => 'tên ngân hàng',
+        'bank_account' => 'số tài khoản',
+        'front' => 'ảnh mặt trước CCCD',
+        'back' => 'ảnh mặt sau CCCD',
+        'selfie' => 'ảnh selfie',
+        'phone' => 'số điện thoại',
+        'holding_front' => 'ảnh cầm CCCD mặt trước',
+        'holding_back' => 'ảnh cầm CCCD mặt sau',
+        'upload' => 'ảnh tải lên',
+    ],
+];
