@@ -83,7 +83,7 @@
         <p class="mx-auto mt-3 max-w-2xl text-center text-slate-600">
             {{ __('Every interaction is crafted to feel like a top-tier digital bank—without the paperwork.') }}</p>
         <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            @foreach ([['icon' => '⚡', 'title' => __('Fast approval'), 'body' => __('Adaptive flows and instant scoring keep momentum high.')], ['icon' => '🔐', 'title' => __('Secure verification'), 'body' => __('OTP login, private document vault, and audit trails.')], ['icon' => '📉', 'title' => __('Low interest demo'), 'body' => __('Transparent amortization preview on every offer.')], ['icon' => '💬', 'title' => __('24/7 support'), 'body' => __('Always-on concierge experience with human tone.')]] as $card)
+            @foreach ([['icon' => '⚡', 'title' => __('Fast approval'), 'body' => __('Adaptive flows and instant scoring keep momentum high.')], ['icon' => '🔐', 'title' => __('Secure verification'), 'body' => __('OTP login, private document vault, and audit trails.')], ['icon' => '📉', 'title' => __('Competitive rates'), 'body' => __('Transparent amortization preview on every offer.')], ['icon' => '💬', 'title' => __('24/7 support'), 'body' => __('Always-on concierge experience with human tone.')]] as $card)
                 <div
                     class="rounded-3xl border border-slate-100 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
                     <div class="text-3xl">{{ $card['icon'] }}</div>
@@ -108,7 +108,7 @@
             </div>
         </div>
         <div class="mx-auto mt-10 grid max-w-6xl gap-6 px-4 sm:grid-cols-3 sm:px-6">
-            @foreach ([['name' => 'Lan P.', 'quote' => __('“The smoothest loan flow I have tried in a demo.”')], ['name' => 'Minh T.', 'quote' => __('“Feels premium—animations and clarity are top notch.”')], ['name' => 'Hoa N.', 'quote' => __('“Loved the transparency on monthly payments.”')]] as $review)
+            @foreach ([['name' => 'Lan P.', 'quote' => __('testimonial_quote_flow')], ['name' => 'Minh T.', 'quote' => __('“Feels premium—animations and clarity are top notch.”')], ['name' => 'Hoa N.', 'quote' => __('“Loved the transparency on monthly payments.”')]] as $review)
                 <figure
                     class="rounded-3xl border border-slate-100 bg-gradient-to-br from-white to-slate-50 p-6 shadow-sm">
                     <blockquote class="text-sm text-slate-700">{{ $review['quote'] }}</blockquote>
@@ -121,7 +121,7 @@
     <section id="faq" class="mx-auto max-w-3xl px-4 py-20 sm:px-6">
         <h2 class="text-center text-3xl font-bold text-slate-900">{{ __('FAQ') }}</h2>
         <div class="mt-8 space-y-4" x-data="{ open: 1 }">
-            @foreach ([['q' => __('Is this a real lender?'), 'a' => __('No. This is a demonstration application with simulated approvals.')], ['q' => __('How do I sign in?'), 'a' => __('We use email OTP codes—no passwords for customers.')], ['q' => __('Where are my documents stored?'), 'a' => __('Uploads are stored privately on the server disk with randomized filenames.')]] as $i => $faq)
+            @foreach ([['q' => __('faq_what_is_finvay_q'), 'a' => __('faq_what_is_finvay_a')], ['q' => __('How do I sign in?'), 'a' => __('We use email OTP codes—no passwords for customers.')], ['q' => __('Where are my documents stored?'), 'a' => __('Uploads are stored privately on the server disk with randomized filenames.')]] as $i => $faq)
                 <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
                     <button type="button"
                         class="flex w-full items-center justify-between px-5 py-4 text-left text-sm font-semibold text-slate-900"

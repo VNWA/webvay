@@ -80,7 +80,7 @@
                         <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 text-xs font-bold text-white">FV</span>
                         {{ config('app.name', 'FinVay') }}
                     </div>
-                    <p class="mt-3 text-sm text-slate-600">{{ __('Demo lending experience. Not a real financial institution.') }}</p>
+                    <p class="mt-3 text-sm text-slate-600">{{ __('footer_company_blurb') }}</p>
                 </div>
                 <div>
                     <h3 class="text-sm font-semibold text-slate-900">{{ __('footer_explore') }}</h3>
@@ -99,7 +99,10 @@
                 </div>
                 <div>
                     <h3 class="text-sm font-semibold text-slate-900">{{ __('Contact') }}</h3>
-                    <p class="mt-3 text-sm text-slate-600">support@finvay.demo</p>
+                    <p class="mt-3 text-sm text-slate-600">
+                        <a href="mailto:{{ config('finvay.support_email') }}"
+                            class="text-blue-600 hover:underline">{{ config('finvay.support_email') }}</a>
+                    </p>
                     <p class="mt-2 text-sm"><a href="{{ route('contact.create') }}" class="font-medium text-blue-600 hover:underline">{{ __('nav_contact') }}</a></p>
                 </div>
                 <div>

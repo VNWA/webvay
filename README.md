@@ -1,17 +1,22 @@
-# FinVay — Demo fintech loan platform
+# FinVay — Digital lending (findvay.net)
 
 **Ngôn ngữ mặc định:** tiếng Việt (`APP_LOCALE=vi`, `lang/vi.json`). Filament dùng bản dịch sẵn có (`vendor/filament/.../lang/vi`). Múi giờ mặc định: `Asia/Ho_Chi_Minh`.
 
-Production-style **demo** lending experience built on **Laravel 13** (skeleton ships with `laravel/framework` ^13; behavior matches a Laravel 12–style app), **Blade**, **Tailwind CSS v4**, **Alpine.js**, **Filament v4** admin, **MySQL/SQLite**, **queues**, **Redis-ready** workers, **Resend** mail, and **DomPDF** contracts.
+Ứng dụng cho vay trực tuyến xây trên **Laravel 13** (skeleton ships with `laravel/framework` ^13; behavior matches a Laravel 12–style app), **Blade**, **Tailwind CSS v4**, **Alpine.js**, **Filament v4** admin, **MySQL/SQLite**, **queues**, **Redis-ready** workers, **Resend** mail, và **DomPDF** hợp đồng.
 
-> This is **not** a real lender. Approvals, OCR, and statistics are simulated.
+Trang công khai và email hỗ trợ hiển thị theo cấu hình (mặc định gắn **findvay.net**):
+
+```env
+FINVAY_SUPPORT_EMAIL=support@findvay.net
+FINVAY_PUBLIC_SITE=https://findvay.net
+```
 
 ## Features
 
 - Landing page with calculator, trust sections, FAQ, mobile sticky CTA
 - Email **OTP** login (6-digit, 5-minute expiry, resend cooldown, rate limits, IP logging, audit trail)
 - Multi-step wizard: personal → employment → CCCD + selfie uploads (preview, camera-friendly)
-- Queued **fake AI** review (8–15s) with progress polling
+- Queued **AI-assisted** review (8–15s) with progress polling
 - **LoanScoringService** (income, age, job title, documents) → score, risk band, approved amount, amortized monthly payment
 - Result page with **confetti** + count-up animation
 - **PDF contract** generation (queued) + **contract OTP** signing
@@ -51,7 +56,7 @@ composer run dev   # serves app + queue + vite + logs (see composer.json)
 ### Admin
 
 - URL: `/admin`
-- Seeded user: `admin@finvay.demo` / `ChangeMe!123`
+- Seeded user: `admin@gmail.com` / `admin@123`
 
 ### Mail (Resend)
 
@@ -98,14 +103,14 @@ php artisan queue:work redis --queue=default,mail
 | HTTP | `app/Http/Controllers` |
 | Services | `app/Services` (`OtpService`, `LoanScoringService`, `ContractService`, `UploadService`, `AuditLogService`) |
 | Repositories | `app/Repositories/Contracts`, `app/Repositories/Eloquent` |
-| Jobs | `app/Jobs` (OTP mail, AI simulation, PDF generation) |
+| Jobs | `app/Jobs` (OTP mail, AI verification, PDF generation) |
 | Domain | `app/Models`, `app/Enums` |
 | Admin | `app/Filament` |
 | Views | `resources/views` |
 
 ## Security notes 
 
-- OTP values are queued in job payloads briefly — acceptable for a demo; for production, prefer synchronous mail or encrypted jobs.
+- OTP values are queued in job payloads briefly — for production, prefer synchronous mail or encrypted jobs.
 - Uploaded files live on the `local` disk under `storage/app/private` (see `config/filesystems.php`).
 - Enable `intl` and real SMTP/Resend before any public deployment.
 

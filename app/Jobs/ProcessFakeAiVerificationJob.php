@@ -81,7 +81,7 @@ class ProcessFakeAiVerificationJob implements ShouldQueue
         $p = $application->profile;
 
         return [
-            'engine' => 'demo-ocr-v1',
+            'engine' => 'findvay-ocr-v1',
             'confidence' => round(random_int(910, 995) / 10, 1),
             'fields' => [
                 'id_number' => $p?->cccd_number ?? 'N/A',

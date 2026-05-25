@@ -35,7 +35,7 @@ class SiteContentTest extends TestCase
             'name' => 'Nguyễn A',
             'email' => 'a@example.com',
             'phone' => '0900000000',
-            'subject' => 'Hỏi demo',
+            'subject' => 'Hỏi về dịch vụ',
             'message' => 'Nội dung test liên hệ.',
         ]);
 

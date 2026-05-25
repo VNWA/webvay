@@ -24,6 +24,6 @@
             <tr><td>{{ __('Monthly payment (est.)') }}</td><td>{{ number_format((int) $application->monthly_payment) }} ₫</td></tr>
         </table>
     </div>
-    <p style="margin-top:16px;">{{ __('By signing electronically you agree to repay according to the amortization schedule provided in-app. This is a demonstration document.') }}</p>
+    <p style="margin-top:16px;">{{ __('contract_pdf_signing_note') }}</p>
 </body>
 </html>
