@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="B£o m­t">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1d4ed8"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#g)"/>
+  <path d="M400 95 L520 145 V235 C520 295 470 335 400 355 C330 335 280 295 280 235 V145 Z" fill="#fff" opacity="0.15"/>
+  <path d="M400 120 L490 160 V235 C490 280 450 310 400 325 C350 310 310 280 310 235 V160 Z" fill="#93c5fd" opacity="0.9"/>
+  <text x="48" y="400" fill="#e2e8f0" font-family="system-ui,sans-serif" font-size="28" font-weight="600">OTP &amp; b£o m­t</text>
+</svg>

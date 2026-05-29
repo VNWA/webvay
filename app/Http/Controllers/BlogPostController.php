@@ -11,6 +11,7 @@ class BlogPostController extends Controller
     {
         $posts = BlogPost::query()
             ->published()
+            ->with('author')
             ->orderByDesc('published_at')
             ->paginate(9);
 
@@ -23,6 +24,16 @@ class BlogPostController extends Controller
             abort(404);
         }
 
-        return view('blog.show', compact('post'));
+        $post->load('author');
+
+        $related = BlogPost::query()
+            ->published()
+            ->with('author')
+            ->where('id', '!=', $post->id)
+            ->orderByDesc('published_at')
+            ->limit(3)
+            ->get();
+
+        return view('blog.show', compact('post', 'related'));
     }
 }

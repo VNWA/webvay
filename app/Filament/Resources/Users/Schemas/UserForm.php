@@ -4,6 +4,7 @@ namespace App\Filament\Resources\Users\Schemas;
 
 use App\Enums\UserRole;
 use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
@@ -20,6 +21,17 @@ class UserForm
                     ->schema([
                         TextInput::make('name')
                             ->required(),
+                        FileUpload::make('avatar_path')
+                            ->label(__('blog_user_avatar'))
+                            ->helperText(__('blog_user_avatar_hint'))
+                            ->image()
+                            ->disk('public')
+                            ->directory('avatars')
+                            ->visibility('public')
+                            ->maxSize(2048)
+                            ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp', 'image/svg+xml'])
+                            ->imageEditor()
+                            ->avatar(),
                         TextInput::make('email')
                             ->label(__('Email address'))
                             ->email()

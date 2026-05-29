@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\BlogPost;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -27,6 +28,42 @@ class SiteContentTest extends TestCase
         $this->get('/tin-tuc')->assertOk()->assertSee('Chào mừng đến với FinVay', false);
 
         $this->get('/tin-tuc/chao-mung-den-finvay')->assertOk()->assertSee('Chào mừng đến với FinVay', false);
+    }
+
+    public function test_blog_shows_cover_and_author_avatars(): void
+    {
+        $this->get('/tin-tuc')
+            ->assertOk()
+            ->assertSee('Phạm Anh', false)
+            ->assertSee('images/blog/covers/welcome.svg', false);
+
+        $this->get('/tin-tuc/chao-mung-den-finvay')
+            ->assertOk()
+            ->assertSee('Biên tập viên FinVay', false)
+            ->assertSee('images/blog/authors/editor.svg', false);
+    }
+
+    public function test_blog_without_media_shows_placeholders(): void
+    {
+        BlogPost::query()->updateOrCreate(
+            ['slug' => 'bai-khong-anh'],
+            [
+                'title' => 'Bài viết không ảnh',
+                'excerpt' => 'Kiểm tra placeholder.',
+                'body' => '<p>Nội dung thử.</p>',
+                'cover_image' => null,
+                'author_avatar' => null,
+                'author_display_name' => 'Khách mời',
+                'is_published' => true,
+                'published_at' => now(),
+            ],
+        );
+
+        $this->get('/tin-tuc/bai-khong-anh')
+            ->assertOk()
+            ->assertSee(__('blog_no_cover_image'), false)
+            ->assertSee(__('blog_no_avatar_image'), false)
+            ->assertSee('Tác giả chưa tải ảnh đại diện', false);
     }
 
     public function test_contact_form_accepts_message(): void

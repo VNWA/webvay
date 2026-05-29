@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enums\UserRole;
+use App\Support\PublicMediaUrl;
 use Database\Factories\UserFactory;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
@@ -13,7 +14,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-#[Fillable(['name', 'email', 'phone', 'password', 'role', 'last_login_ip', 'last_login_at'])]
+#[Fillable(['name', 'email', 'avatar_path', 'phone', 'password', 'role', 'last_login_ip', 'last_login_at'])]
 #[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable implements FilamentUser
 {
@@ -33,6 +34,16 @@ class User extends Authenticatable implements FilamentUser
     public function canAccessPanel(Panel $panel): bool
     {
         return $this->role === UserRole::Admin;
+    }
+
+    public function avatarUrl(): ?string
+    {
+        return PublicMediaUrl::resolve($this->avatar_path);
+    }
+
+    public function initials(): string
+    {
+        return BlogPost::initialsFromName($this->name);
     }
 
     public function loanApplications(): HasMany
