@@ -125,7 +125,7 @@
                 <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
                     <button type="button"
                         class="flex w-full items-center justify-between px-5 py-4 text-left text-sm font-semibold text-slate-900"
-                        @click="open = open === {{ $i }} ? null : {{ $i }}}">
+                        @click="open = open === {{ $i }} ? null : {{ $i }}">
                         {{ $faq['q'] }}
                         <span class="text-blue-600" x-text="open === {{ $i }} ? '−' : '+'"></span>
                     </button>

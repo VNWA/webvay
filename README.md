@@ -58,6 +58,14 @@ composer run dev   # serves app + queue + vite + logs (see composer.json)
 - URL: `/admin`
 - Seeded user: `admin@gmail.com` / `admin@123`
 
+### Filament admin (production)
+
+Nếu đăng nhập `/admin` xong bị **tải lại trang login**, kiểm tra:
+
+1. **`APP_URL`** trùng URL thật (gồm `https://` và host).
+2. Bảng **`sessions`** đã migrate khi `SESSION_DRIVER=database`.
+3. User có **`role` = `admin`** trong DB.
+
 ### Mail (Resend)
 
 1. Tạo API key tại [Resend](https://resend.com) và thêm vào `.env`:
